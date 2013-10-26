@@ -24,7 +24,11 @@
   "content_scripts": [
     {
       "matches": [ "*://*.facebook.com/*"],
-      "js": ["js/vendor/jquery-2.0.3.js", "js/fb-content.js"]
+      "js": [
+        "js/vendor/jquery-2.0.3.js", 
+        "js/fbChatter.js",
+        "js/fbContent.js"
+      ]
     }],
 
 	"default_locale": "ru",
