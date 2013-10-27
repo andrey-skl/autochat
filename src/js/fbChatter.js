@@ -4,6 +4,7 @@
 		input: ".uiTextareaAutogrow",
 		lastMessage: ".fbChatConvItem div.fsm>span",
 		titleBar : ".titlebar",
+		userName: ".titlebarTextWrapper a.titlebarText"
 	}
 
 	window.FbChatter = function($container){
@@ -15,6 +16,21 @@
 	FbChatter.prototype.getLastMessage = function(){
 		var $lastMessage = $(sels.lastMessage, this.container).last();
 		return $lastMessage.text();
+	}
+
+	FbChatter.prototype.getUser = function(){
+		var $link = $(sels.userName, this.container);
+
+		var userName = $link.text().split(" ");
+		var firstName = userName[0];
+		var lastName = userName[1];
+
+		var userId = $link.attr("href").replace("https://www.facebook.com/","");
+		return { 
+			id: userId, 
+			firstName: firstName,
+			lastName: lastName,
+		}
 	}
 
 	FbChatter.prototype.sendMessage = function(msg){

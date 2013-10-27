@@ -1,12 +1,12 @@
-var api = new ChatBotApi("Andrey", "Skladchikov");
+var api = new ChatBotApi();
 
 chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 	tab = sender.tab;
-    if (request.action == "tell")
+  if (request.action == "tell")
 	{
 		console.log("telling", request);	
 		
-		api.tell(request.message).done(function(result){
+		api.tell(request.message, request.user).done(function(result){
 			sendResponse(result);
 		})
 	}

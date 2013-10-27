@@ -45,12 +45,14 @@ $(function(){
 
 	var answer = function(chatter){
 		var msg = chatter.getLastMessage();
-		console.log("last message: ", msg);
+		var user = chatter.getUser();
+		console.log("last message: ", msg, user);
 
 		chrome.extension.sendRequest(
 			{
 				action:"tell", 
 				message: msg, 
+				user: user,
 			}, 
 			function(res) {
 				console.log("response", res)
