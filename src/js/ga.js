@@ -10,7 +10,7 @@ _gaq.push(['_trackPageview']);
 
 
 window.onerror = function(msg, url, line) {
-	var preventErrorAlert = true;
+	var preventErrorAlert = false;
 	_gaq.push(['_trackEvent', 'JS Error', msg, navigator.userAgent + ' -> ' + url + " : " + line, 0, true]);
 	return preventErrorAlert;
 };

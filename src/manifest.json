@@ -26,6 +26,7 @@
       "matches": [ "*://*.facebook.com/*"],
       "js": [
         "js/vendor/jquery-2.0.3.js", 
+        "js/vendor/mutation-summary.js", 
         "js/fbChatter.js",
         "js/fbContent.js"
       ]
@@ -34,5 +35,5 @@
 	"default_locale": "ru",
    "homepage_url": "http://vkontakte.ru/vk_scrobbler",
    "web_accessible_resources": [],
-   "content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'; style-src 'self' 'unsafe-inline';"
+   "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.facebook.com https://ssl.google-analytics.com; object-src 'self'; style-src 'self' 'unsafe-inline';"
 }

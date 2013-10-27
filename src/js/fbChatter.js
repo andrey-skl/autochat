@@ -2,18 +2,18 @@
 	var sels = {
 		container : ".fbDockChatTabFlyout",
 		input: ".uiTextareaAutogrow",
-		lastMessage: ".fbChatConvItem div.fsm span",
+		lastMessage: ".fbChatConvItem div.fsm>span",
 		titleBar : ".titlebar",
 	}
 
-	window.FbChatter = function(){
-		this.container = $(sels.container);
+	window.FbChatter = function($container){
+		this.container = $container || $(sels.container);
 		this.input = $(sels.input, this.container);
 		this.lastMessage = $(sels.lastMessage).last();
 	};
 
 	FbChatter.prototype.getLastMessage = function(){
-		var $lastMessage = $(sels.lastMessage).last();
+		var $lastMessage = $(sels.lastMessage, this.container).last();
 		return $lastMessage.text();
 	}
 
@@ -29,7 +29,7 @@
 	FbChatter.prototype.makeControlPanel = function(e){
 		var self = this;
 
-		$(sels.titleBar).append('<div class="iAutochatControl">\
+		$(sels.titleBar, self.container).append('<div class="iAutochatControl">\
 			<a class="autoAnswer" style="color:white;">Auto answer</a>\
 		</div>');
 
