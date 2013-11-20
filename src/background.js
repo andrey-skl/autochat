@@ -10,5 +10,12 @@ chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
 			sendResponse(result);
 		})
 	}
+	if(request.action == "tellInf"){
+		console.log("telling inf", request);	
+		
+		api.tell(request.message, request.user).done(function(result){
+			sendResponse(result);
+		})
+	}
 
 });

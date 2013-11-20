@@ -11,12 +11,14 @@
       "js/vendor/jquery-2.0.3.js",
       "js/ga.js", 
       "js/chatBotApi.js", 
+      "js/infBotApi.js", 
       "background.js"
     ]
   },
   "permissions": [
     "tabs",	  
     "notifications", 
+    "*://*.vk.com/*",
     "*://*.facebook.com/*",
     "*://*.personalityforge.com/*"
   ],
@@ -30,10 +32,21 @@
         "js/fbChatter.js",
         "js/fbContent.js"
       ]
-    }],
+    },
+    {
+      "matches": [ "*://*.vk.com/*"],
+      "js": [
+        "js/vendor/jquery-2.0.3.js", 
+        "js/functionListener.js", 
+        "js/vendor/mutation-summary.js", 
+        "js/vkChatter.js",
+        "js/vkContent.js"
+      ]
+    }
+    ],
 
 	"default_locale": "ru",
    "homepage_url": "http://vkontakte.ru/vk_scrobbler",
-   "web_accessible_resources": [],
+   "web_accessible_resources": ["js/vkInner.js"],
    "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.facebook.com https://ssl.google-analytics.com; object-src 'self'; style-src 'self' 'unsafe-inline';"
 }
